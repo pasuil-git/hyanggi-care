@@ -6,6 +6,8 @@ import Consultation from './components/Consultation';
 import Footer from './components/Footer';
 import './index.css';
 
+import aboutCenterImg from './assets/about_center.jpg';
+
 function App() {
   return (
     <div className="app-wrapper">
@@ -18,13 +20,9 @@ function App() {
               <div className="order-2 md:order-1 relative">
                 <div className="relative z-10 rounded-[40px] overflow-hidden shadow-2xl border-8 border-white bg-gray-100">
                   <img 
-                    src="/src/assets/about_center.jpg" 
+                    src={aboutCenterImg} 
                     alt="향기재가센터 내부" 
                     className="w-full h-[400px] object-cover"
-                    onError={(e) => {
-                      e.target.src = 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=1200';
-                      e.target.alt = '향기재가센터 이미지 준비 중';
-                    }}
                   />
                 </div>
                 {/* Decorative background element */}
