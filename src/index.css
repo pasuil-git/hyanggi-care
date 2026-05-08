@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors from Stitch Design System */
+  --primary: #1A237E;
+  --primary-light: #343d96;
+  --secondary: #F8BBD0;
+  --secondary-light: #fec1d6;
+  --accent: #805062;
+  --background: #f9f9f9;
+  --surface: #ffffff;
+  --text-main: #1a1c1c;
+  --text-muted: #454652;
+  --outline: #767683;
+  
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(26, 35, 126, 0.05);
+  --shadow-md: 0 10px 20px rgba(26, 35, 126, 0.08);
+  --shadow-lg: 0 20px 40px rgba(26, 35, 126, 0.12);
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: var(--background);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-padding {
+  padding: 5rem 0;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
