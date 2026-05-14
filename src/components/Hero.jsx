@@ -25,14 +25,6 @@ const Hero = () => {
           <p className="text-lg text-text-muted mb-8 max-w-lg">
             향기재가센터는 어르신의 자존감을 존중하며, 가정처럼 편안하고 전문적인 케어를 제공합니다. 향기로운 일상을 선물해 드립니다.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <a href="#consultation" className="btn-primary px-10 py-4 text-lg">
-              무료 상담 신청하기
-            </a>
-            <a href="#about" className="px-8 py-4 border-2 border-primary rounded-full font-bold text-primary hover:bg-primary hover:text-white transition-all">
-              센터 둘러보기
-            </a>
-          </div>
         </motion.div>
 
         <motion.div

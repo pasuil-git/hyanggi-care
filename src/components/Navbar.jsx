@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,9 +17,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: '센터소개', href: '#about' },
-    { name: '제공서비스', href: '#services' },
-    { name: '상담신청', href: '#contact' },
+    { name: '센터소개', href: '/#about', type: 'anchor' },
+    { name: '제공서비스', href: '/#services', type: 'anchor' },
+    { name: '비용계산기', href: '/calculator', type: 'link' },
+    { name: '커뮤니티', href: '/notice', type: 'link' },
   ];
 
   return (
@@ -33,9 +36,23 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="font-medium hover:text-primary transition-colors">
-              {link.name}
-            </a>
+            link.type === 'link' ? (
+              <Link 
+                key={link.name} 
+                to={link.href} 
+                className={`font-medium transition-colors ${location.pathname === link.href ? 'text-primary' : 'hover:text-primary'}`}
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className="font-medium hover:text-primary transition-colors"
+              >
+                {link.name}
+              </a>
+            )
           ))}
           <a href="tel:032-563-8927" className="btn-primary">
             <Phone size={18} />
@@ -59,14 +76,25 @@ const Navbar = () => {
             className="md:hidden absolute top-full left-0 w-full glass p-6 flex flex-col gap-4 shadow-xl"
           >
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-lg font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
+              link.type === 'link' ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={`text-lg font-medium ${location.pathname === link.href ? 'text-primary' : ''}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-lg font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              )
             ))}
             <a href="tel:032-563-8927" className="btn-primary justify-center">
               <Phone size={18} />
